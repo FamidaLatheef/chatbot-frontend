@@ -21,11 +21,8 @@ export async function POST(req: Request) {
     // Log raw completion to debug
     console.log("Raw completion:", completion);
 
-    // Handle different possible response structures
-    const reply =
-      completion.choices?.[0]?.message?.content?.trim() || // standard chat completion
-      completion.choices?.[0]?.text?.trim() ||            // fallback for older models
-      "(no reply)";
+    // Only use the standard chat completion field
+    const reply = completion.choices?.[0]?.message?.content?.trim() || "(no reply)";
 
     return NextResponse.json({ reply });
   } catch (error: any) {
@@ -33,12 +30,3 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
-
-
-
-
-
-
-
-
-

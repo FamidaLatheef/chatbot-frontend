@@ -1,13 +1,6 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
+import type { NextConfig } from "next";
 
-  // Pass environment variables explicitly to Next.js
-  env: {
-    OPENAI_API_KEY: process.env.OPENAI_API_KEY,
-  },
-
-  // Optional: enable debug logging for env variables
+const nextConfig: NextConfig = {
   webpack: (config, { isServer }) => {
     if (isServer) {
       console.log("DEBUG in next.config.js:", process.env.OPENAI_API_KEY);
@@ -16,6 +9,7 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+export default nextConfig;
+
 
 

@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "css:watch": "tailwindcss -i ./src/input.css -o ./public/dist/output.css --watch"
-  },
+  "dev": "next dev",
+  "build": "next build && next export",
+  "start": "next start",
+  "lint": "next lint",
+  "css:watch": "tailwindcss -i ./src/input.css -o ./public/dist/output.css --watch"
+},
+
   "dependencies": {
     "@nhost/nextjs": "^2.3.0",
     "@nhost/nhost-js": "^3.3.0",
